@@ -19,18 +19,32 @@ const notes = [
 ]
 
 const noteAboutToday = {
-    id: 3,
     subject: "Learned about the push function.",
     date: "11/16/2021",
     feeling: "ecstatic",
     timeSpent: 5
 }
 
-notes.push(noteAboutToday);
+const createNote = (noteArray, note) => {
+    note.id = noteArray.length + 1;
+    note.dateCreated = Date();
+    noteArray.push(note);
+}
 
-for (const note of notes) {
-    if (note.subject.indexOf(searchTerm) != -1) {
-    console.log(`On ${note.date},
-     I ${note.subject} and felt ${note.feeling}`);
-    }
-};
+const moreNewerNote = {
+    subject: "learned how to make functions to add a specific id onto an object",
+    date: "11/17/2021",
+    feeling: "nice",
+    timeSpent: 30
+}
+
+createNote(notes, noteAboutToday);
+createNote(notes, moreNewerNote);
+
+console.log(notes);
+// for (const note of notes) {
+//     if (note.subject.indexOf(searchTerm) != -1) {
+//     console.log(`On ${note.date},
+//      I ${note.subject} and felt ${note.feeling}`);
+//     }
+// };
